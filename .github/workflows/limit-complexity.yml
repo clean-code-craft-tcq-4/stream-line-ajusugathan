@@ -1,17 +1,16 @@
-name: No Duplications
+name: Limit complexity
 
 on: [push, pull_request]
 
 jobs:
-  nodups:
-
+  complexcheck:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install jscpd
-      run: sudo npm install -g jscpd
+    - name: Install lizard
+      run: pip install lizard
 
-    - name: No Duplication beyond 3 lines
-      run: jscpd . --min-lines 3 --min-tokens 48 --threshold 0
+    - name: Limit complexity
+      run: $HOME/.local/bin/lizard --exclude "./test/*" --CCN 4
