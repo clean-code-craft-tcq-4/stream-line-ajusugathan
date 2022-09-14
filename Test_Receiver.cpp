@@ -2,7 +2,7 @@
 
 #include "test/catch.hpp"
 #include <iostream>
-#include "BMS_DataReceiver.hpp"
+#include "Receiver/BMS_DataReceiver.hpp"
 #include <cstdlib> 
 #include <ctime> 
 
