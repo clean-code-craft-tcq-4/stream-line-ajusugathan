@@ -19,7 +19,7 @@ jobs:
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker *.c ./Sender/*.c
       
     - name: run
-      run: ./testchecker > OutPut.txt
+      run: ./testchecker >> OutPut.txt
       
     - name: Pipeline Receiver
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testcheckerreceiver *.cpp ./Receiver/*.c*
