@@ -8,7 +8,7 @@ std::vector<float> getnumberoutputstream(std::vector<std::string>&outputstreamda
 {
 	std::vector<float>outputfloatdata{}; 	
 	stringtofloat(outputstreamdata,outputfloatdata);
-	sort(outputfloatdata.begin(),outputfloatdata.end());
+	std::sort(outputfloatdata.begin(),outputfloatdata.end());
 	return outputfloatdata;
 }
 void printvalue(float value, std::string str="")
