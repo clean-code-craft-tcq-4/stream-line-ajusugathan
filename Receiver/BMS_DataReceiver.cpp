@@ -1,21 +1,21 @@
 #include "BMS_DataReceiver.hpp"
-void stringtofloat(const std::vector<std::string>&outputstreamdata,std::vector<float>&outputfloatdata)
+void sensorstreams::stringtofloat(const std::vector<std::string>&outputstreamdata,std::vector<float>&outputfloatdata)
 {
 	for(std::string val : outputstreamdata)
         {  outputfloatdata.push_back(std::stof(val));  }
 }
-std::vector<float> getnumberoutputstream(std::vector<std::string>&outputstreamdata)
+std::vector<float> sensorstreams::getnumberoutputstream(std::vector<std::string>&outputstreamdata)
 {
 	std::vector<float>outputfloatdata{}; 	
 	stringtofloat(outputstreamdata,outputfloatdata);
 	std::sort(outputfloatdata.begin(),outputfloatdata.end());
 	return outputfloatdata;
 }
-void printvalue(float value, std::string str="")
+void sensorstreams::printvalue(float value, std::string str="")
 {
 	std::cout << str << value << std::endl;
 }
-bool readingfromstdin(std::vector<std::string>&outputstreamdata)
+bool sensorstreams::readingfromstdin(std::vector<std::string>&outputstreamdata)
 {
 	try{
 	   int c =0;
@@ -33,7 +33,7 @@ bool readingfromstdin(std::vector<std::string>&outputstreamdata)
 	}
 	return true;
 }
-bool printmaxandminvalue(std::vector<std::string>&outputstreamdata)
+bool sensorstreams::printmaxandminvalue(std::vector<std::string>&outputstreamdata)
 {
 	try{
 	  std::vector<float>outputfloatdata = getnumberoutputstream(outputstreamdata); 
@@ -46,7 +46,7 @@ bool printmaxandminvalue(std::vector<std::string>&outputstreamdata)
 	}
 	return true;
 }
-bool printaverage(std::vector<std::string>&outputstreamdata)
+bool sensorstreams::printaverage(std::vector<std::string>&outputstreamdata)
 {
 	try{
 	  float averageval = 0;	

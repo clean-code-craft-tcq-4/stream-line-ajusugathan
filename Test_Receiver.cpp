@@ -10,10 +10,11 @@
 
 TEST_CASE("TEST_CASE 1 :: Reading Data From Stdin") {
   
+    sensorstreams objectofsensor;
     std::vector<std::string>outputstreamdata{};
-	assert(readingfromstdin(outputstreamdata) == true);
-	assert(printmaxandminvalue(outputstreamdata) == true);
-	assert(printaverage(outputstreamdata) == true);
+	assert(objectofsensor.readingfromstdin(outputstreamdata) == true);
+	assert(objectofsensor.printmaxandminvalue(outputstreamdata) == true);
+	assert(objectofsensor.printaverage(outputstreamdata) == true);
 }
 //TEST_CASE("TEST_CASE 2 :: Fail to Generate Parameters of Battery") {
 //  
