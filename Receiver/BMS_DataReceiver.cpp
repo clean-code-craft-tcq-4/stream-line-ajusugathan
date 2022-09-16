@@ -1,15 +1,22 @@
 #include "BMS_DataReceiver.hpp"
-void sensorstreams::stringtofloat(const std::vector<std::string>&outputstreamdata,std::vector<float>&outputfloatdata)
+void splitstreamdata(const std::vector<float>&outputstreamdata,string deli = ",")
 {
-	for(std::string val : outputstreamdata)
-        {  outputfloatdata.push_back(std::stof(val));  }
+	for(std::string val : outputstreamdata){
+	     int start = 0;
+         int end = val.find(deli);
+         while (end != -1) {
+             temperaturestream.push_back(stringtofloat(val.substr(start, end - start)));
+             start = end + deli.size();
+             end = val.find(deli, start);
+         }
+         socstream.push_back(stringtofloat(val.substr(start, end - start)));
+	}
+	std::sort(temperaturestream.begin(),temperaturestream.end());
+	std::sort(socstream.begin(),socstream.end());
 }
-std::vector<float> sensorstreams::getnumberoutputstream(std::vector<std::string>&outputstreamdata)
+float sensorstreams::stringtofloat(float outputfloatdata)
 {
-	std::vector<float>outputfloatdata{}; 	
-	stringtofloat(outputstreamdata,outputfloatdata);
-	std::sort(outputfloatdata.begin(),outputfloatdata.end());
-	return outputfloatdata;
+        return std::stof(val);
 }
 void sensorstreams::printvalue(float value, std::string str="")
 {
@@ -26,6 +33,7 @@ bool sensorstreams::readingfromstdin()
 	   	     }
 	   	 c++;
        }
+	   splitstreamdata(outputstreamdata,",");
 	}
 	catch(...)
 	{
@@ -36,9 +44,11 @@ bool sensorstreams::readingfromstdin()
 bool sensorstreams::printmaxandminvalue()
 {
 	try{
-	  std::vector<float>outputfloatdata = getnumberoutputstream(outputstreamdata); 
-	  printvalue(outputfloatdata[0],"Minimum values is :: ");
-	  printvalue(outputfloatdata[outputfloatdata.size()-1],"Maximum  values is :: ");
+	  printvalue(temperaturestream[0],"Minimum Temperature values is :: ");
+	  printvalue(outputfloatdata[temperaturestream.size()-1],"Maximum Temperature values is :: ");
+	  
+	  printvalue(socstream[0],"Minimum Soc values is :: ");
+	  printvalue(outputfloatdata[socstream.size()-1],"Maximum Soc values is :: ");
 	}
 	catch(...)
 	{
@@ -50,10 +60,14 @@ bool sensorstreams::printaverage()
 {
 	try{
 	  float averageval = 0;	
-	  std::vector<float>outputfloatdata = getnumberoutputstream(outputstreamdata);
-	  for(auto val : outputfloatdata)
+	  for(auto val : temperaturestream)
         { averageval += val;  }
-	  printvalue(averageval/outputfloatdata.size(),"Average values is :: ");
+	  printvalue(averageval/temperaturestream.size(),"Average Temperature values is :: ");
+	  
+	  averageval = 0;	
+	  for(auto val : socstream)
+        { averageval += val;  }
+	  printvalue(averageval/socstream.size(),"Average Soc values is :: ");
 	}
 	catch(...)
 	{
