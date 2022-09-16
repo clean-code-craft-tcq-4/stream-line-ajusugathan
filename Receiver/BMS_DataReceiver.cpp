@@ -2,8 +2,13 @@
 
 bool readingfromstdin()
 {
+	int c =0;
 	 for (std::string line; std::getline(std::cin, line);) {
-         std::cout << line << std::endl;
+		 if(c>4)
+		 {
+           std::cout << line << std::endl;
+		 }
+		 c++;
         }
 	return true;
 }
