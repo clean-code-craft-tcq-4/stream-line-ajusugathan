@@ -1,9 +1,9 @@
 #include "BMS_DataReceiver.hpp"
 float sensorstreams::stringtofloat(float outputfloatdata)
 {
-        return std::stof(val);
+        return std::stof(outputfloatdata);
 }
-void splitstreamdata(std::string deli = ",")
+void sensorstreams::splitstreamdata(std::string deli = ",")
 {
 	for(std::string val : outputstreamdata){
 	     int start = 0;
