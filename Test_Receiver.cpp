@@ -8,21 +8,10 @@
 
 
 
-//TEST_CASE("TEST_CASE 1 :: Generate Parameters of Battery Temperature and SOC") {
-//  
-//    Battery batteryobj;
-//    std::srand(static_cast<unsigned int>(std::time(nullptr))); 
-//  
-//    for (int count=1; count <= 100; ++count)
-//    {
-//        assert(batteryobj.batteryIsOk((std::rand()%100),TEMPERATURE) == true);
-//	}
-//	for (int count=1; count <= 100; ++count)
-//    {
-//        assert(batteryobj.batteryIsOk((std::rand()%100),SOC) == true);
-//	}
-//	assert(batteryobj.printoutputtocommunicate() == true);
-//}
+TEST_CASE("TEST_CASE 1 :: Reading Data From Stdin") {
+  
+	assert(readingfromstdin() == true);
+}
 //TEST_CASE("TEST_CASE 2 :: Fail to Generate Parameters of Battery") {
 //  
 //    Battery batteryobj;
