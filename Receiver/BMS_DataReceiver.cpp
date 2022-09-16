@@ -2,9 +2,8 @@
 
 bool readingfromstdin()
 {
-	 std::string line; std::getline(std::cin, line);) {
-       std::cout << line << std::endl;
-    }
+	 for (std::string line; std::getline(std::cin, line);) {
+         std::cout << line << std::endl;
+        }
 	return true;
-	
 }
