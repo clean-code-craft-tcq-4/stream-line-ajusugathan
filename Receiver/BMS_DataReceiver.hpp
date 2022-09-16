@@ -14,7 +14,7 @@ class sensorstreams{
 			bool readingfromstdin();
 			bool printmaxandminvalue();
 			bool printaverage();
-			float stringtofloat(float outputfloatdata);
+			float stringtofloat(std::string str);
 			void printvalue(float value, std::string str);
 			void splitstreamdata(std::string deli);
 };

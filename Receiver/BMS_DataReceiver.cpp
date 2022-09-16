@@ -1,7 +1,7 @@
 #include "BMS_DataReceiver.hpp"
-float sensorstreams::stringtofloat(float outputfloatdata)
+float sensorstreams::stringtofloat(std::string str)
 {
-        return std::stof(outputfloatdata);
+        return std::stof(str);
 }
 void sensorstreams::splitstreamdata(std::string deli = ",")
 {
