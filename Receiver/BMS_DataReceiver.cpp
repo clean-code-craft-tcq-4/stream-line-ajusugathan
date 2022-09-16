@@ -6,4 +6,5 @@ bool readingfromstdin()
          std::cout << line << std::endl;
         }
 	return true;
+	
 }
