@@ -10,7 +10,10 @@
 
 TEST_CASE("TEST_CASE 1 :: Reading Data From Stdin") {
   
-	assert(readingfromstdin() == true);
+    std::vector<std::string>outputstreamdata{};
+	assert(readingfromstdin(outputstreamdata) == true);
+	assert(printmaxandminvalue(outputstreamdata) == true);
+	assert(printaverage(outputstreamdata) == true);
 }
 //TEST_CASE("TEST_CASE 2 :: Fail to Generate Parameters of Battery") {
 //  
