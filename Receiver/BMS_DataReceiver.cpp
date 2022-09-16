@@ -9,6 +9,7 @@ bool readingfromstdin()
 		 {			 
            std::cout << line << std::endl;
 		 }
+		 c++;
     }
 	return true;
 }
