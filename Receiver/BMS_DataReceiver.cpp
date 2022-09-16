@@ -5,9 +5,10 @@ bool readingfromstdin()
 {
 	int c =0;
 	 for (std::string line; std::getline(std::cin, line);) {
-		
+         if(c < 9)
+		 {			 
            std::cout << line << std::endl;
-		
-        }
+		 }
+    }
 	return true;
 }
