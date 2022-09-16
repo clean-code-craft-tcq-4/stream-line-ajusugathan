@@ -21,7 +21,7 @@ bool readingfromstdin(std::vector<std::string>&outputstreamdata)
 	    for (std::string line; std::getline(std::cin, line);) {
             if(c > 10)
 	     	 {			 
-	   	      outputstreamdata.push_back(line)
+	   	      outputstreamdata.push_back(line);
 	   	     }
 	   	 c++;
        }
