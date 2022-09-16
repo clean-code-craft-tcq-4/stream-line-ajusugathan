@@ -1,5 +1,9 @@
 #include "BMS_DataReceiver.hpp"
-void splitstreamdata(const std::vector<float>&outputstreamdata,string deli = ",")
+float sensorstreams::stringtofloat(float outputfloatdata)
+{
+        return std::stof(val);
+}
+void splitstreamdata(std::string deli = ",")
 {
 	for(std::string val : outputstreamdata){
 	     int start = 0;
@@ -13,10 +17,6 @@ void splitstreamdata(const std::vector<float>&outputstreamdata,string deli = ","
 	}
 	std::sort(temperaturestream.begin(),temperaturestream.end());
 	std::sort(socstream.begin(),socstream.end());
-}
-float sensorstreams::stringtofloat(float outputfloatdata)
-{
-        return std::stof(val);
 }
 void sensorstreams::printvalue(float value, std::string str="")
 {
@@ -33,7 +33,7 @@ bool sensorstreams::readingfromstdin()
 	   	     }
 	   	 c++;
        }
-	   splitstreamdata(outputstreamdata,",");
+	   splitstreamdata(",");
 	}
 	catch(...)
 	{
@@ -45,10 +45,10 @@ bool sensorstreams::printmaxandminvalue()
 {
 	try{
 	  printvalue(temperaturestream[0],"Minimum Temperature values is :: ");
-	  printvalue(outputfloatdata[temperaturestream.size()-1],"Maximum Temperature values is :: ");
+	  printvalue(temperaturestream[temperaturestream.size()-1],"Maximum Temperature values is :: ");
 	  
 	  printvalue(socstream[0],"Minimum Soc values is :: ");
-	  printvalue(outputfloatdata[socstream.size()-1],"Maximum Soc values is :: ");
+	  printvalue(socstream[socstream.size()-1],"Maximum Soc values is :: ");
 	}
 	catch(...)
 	{

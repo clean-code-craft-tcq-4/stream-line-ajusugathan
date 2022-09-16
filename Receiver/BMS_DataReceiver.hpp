@@ -16,5 +16,5 @@ class sensorstreams{
 			bool printaverage();
 			float stringtofloat(float outputfloatdata);
 			void printvalue(float value, std::string str);
-			void splitstreamdata(const std::vector<float>&outputstreamdata,string deli);
+			void splitstreamdata(std::string deli);
 };
