@@ -15,7 +15,7 @@ void sensorstreams::printvalue(float value, std::string str="")
 {
 	std::cout << str << value << std::endl;
 }
-bool sensorstreams::readingfromstdin(std::vector<std::string>&outputstreamdata)
+bool sensorstreams::readingfromstdin()
 {
 	try{
 	   int c =0;
@@ -33,7 +33,7 @@ bool sensorstreams::readingfromstdin(std::vector<std::string>&outputstreamdata)
 	}
 	return true;
 }
-bool sensorstreams::printmaxandminvalue(std::vector<std::string>&outputstreamdata)
+bool sensorstreams::printmaxandminvalue()
 {
 	try{
 	  std::vector<float>outputfloatdata = getnumberoutputstream(outputstreamdata); 
@@ -46,7 +46,7 @@ bool sensorstreams::printmaxandminvalue(std::vector<std::string>&outputstreamdat
 	}
 	return true;
 }
-bool sensorstreams::printaverage(std::vector<std::string>&outputstreamdata)
+bool sensorstreams::printaverage()
 {
 	try{
 	  float averageval = 0;	
